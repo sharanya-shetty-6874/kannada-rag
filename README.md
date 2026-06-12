@@ -1,4 +1,4 @@
-# Kannada Multilingual RAG System
+# Kannada RAG System
 
 ## Architecture
 
