@@ -1,12 +1,28 @@
-Kannada  RAG System
+# Kannada Multilingual RAG System
 
-Features:
-- OCR-based PDF ingestion
+## Architecture
+
+![Kannada RAG Architecture](architecture.png)
+
+## Overview
+
+A Kannada Multilingual RAG (Retrieval-Augmented Generation) system that supports:
+
+- PDF ingestion and OCR
+- Kannada text extraction
 - Hybrid Retrieval (FAISS + BM25)
-- Agent-based RAG pipeline
+- Agent-based orchestration
 - Groq LLM answer generation
 - Kannada Text-to-Speech
-- Evaluation framework
+- React + FastAPI interface
 
-Tech Stack:
-Python, FastAPI, FAISS, BM25, React, Groq
+## Tech Stack
+
+- Python
+- FastAPI
+- React
+- FAISS
+- BM25
+- Groq LLM
+- Tesseract OCR
+- Kannada Sentence-BERT
