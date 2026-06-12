@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Make app take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* ✅ FIX: removed overflow: hidden from html/body — it was blocking all scroll */
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ✅ FIX: #root must fill height AND be a flex column so children can scroll */
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Prevent horizontal scroll conflicts */
+body {
+  overflow-x: hidden;
+  background-color: var(--bg);
+}
+
+/* Optional: improve font rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================
+   🌙 LIGHT / DARK THEME VARS
+   ========================== */
+
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #111827;
+}
+
+/* ✅ FIX: dark vars on html.dark (set by JS on <html>) not a div */
+html.dark {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --text: #e6eef8;
+}
+
+/* Keep .dark selector too for any nested usage */
+.dark {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --text: #e6eef8;
+}
+
+/* Apply theme globally */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Keyboard container */
+.simple-keyboard.custom-kbd {
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Keys */
+.simple-keyboard.custom-kbd .hg-button {
+  height: 55px !important;
+  font-size: 20px !important;
+  line-height: 55px !important;
+  border-radius: 10px !important;
+  margin: 4px;
+  background: #f8f9fa;
+  color: #222;
+  border: 1px solid #e3e3e3;
+}
+
+/* Press effect */
+.simple-keyboard.custom-kbd .hg-button:active {
+  background: #e0e0e0;
+}
+
+/* Popup (Long Press) */
+.popup-box {
+  position: absolute;
+  background: white;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+.popup-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.popup-item:hover {
+  background: #f0f0f0;
+}
+
+/* container theme for keyboard */
+.custom-kbd .hg {
+  padding: 8px;
+}
+
+/* keys styling */
+.custom-kbd .hg-button {
+  height: 56px !important;
+  min-width: 48px !important;
+  font-size: 20px !important;
+  border-radius: 8px !important;
+  margin: 6px !important;
+  background: #f7fafc !important;
+  border: 1px solid #e6e6e6 !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* special key styles */
+.custom-kbd .hg-button.hg-special {
+  background: #f0f4ff !important;
+  color: #0b61ff !important;
+}
+
+/* pressed style */
+.custom-kbd .hg-button.hg-standard:hover {
+  transform: translateY(-1px);
+}
+
+/* popup */
+.keyboard-popup-wrapper {
+  pointer-events: auto;
+}
+
+.keyboard-popup {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* dark mode adjustments */
+.dark .custom-kbd .hg-button {
+  background: #1f2937 !important;
+  color: #fff !important;
+  border-color: #374151 !important;
+}
+.dark .keyboard-popup {
+  background: #111827;
+  border-color: #374151;
+  color: #fff;
+}
+
+/* Override some Tailwind defaults in dark mode */
+.dark .bg-gray-50  { background-color: #0b1220 !important; }
+.dark .bg-white    { background-color: #0f1724 !important; }
+.dark .text-gray-900 { color: #e6eef8 !important; }
+.dark .text-gray-700 { color: #cbd5e1 !important; }
+
+/* ==========================
+   🌙 SCROLLBAR STYLE
+   ========================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+}

@@ -1,0 +1,31 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Data
+data/
+pdfs/
+src/indic_resources/
+# Generated artifacts
+index/
+models/
+backend/models/
+
+# Audio
+*.mp3
+
+# Jupyter
+.ipynb_checkpoints/
+
+evaluation/results/
+evaluation/results_*.csv
+evaluation/results_*.json
